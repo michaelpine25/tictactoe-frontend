@@ -44,7 +44,7 @@ const authenticate = async () => {
     navigateTo('/');
   } else {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/user/', {
+      const response = await axios.get('http://18.226.226.215:8000/api/user/', {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Token ${token}`,
