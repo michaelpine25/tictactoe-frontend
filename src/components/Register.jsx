@@ -18,8 +18,8 @@ export default function Register() {
       };
     
       try {
-        const response = await axios.post('/api/register/', formData);
-        const loginResponse = await axios.post('/api/login/', {
+        const response = await axios.post('http://18.226.226.215:8000/api/register/', formData);
+        const loginResponse = await axios.post('http://18.226.226.215:8000/api/login/', {
           username: formData.username,
           password: formData.password
         })

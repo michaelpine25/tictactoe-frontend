@@ -14,7 +14,7 @@ export default function Login() {
       password: e.target.password.value,
     }
     try{
-      const response = await axios.post('/api/login/', formData)
+      const response = await axios.post('http://18.226.226.215:8000/api/login/', formData)
       localStorage.setItem('authToken', response.data.token)
       console.log(response)
       navigateTo('/dashboard/play')
