@@ -41,7 +41,7 @@ function Game(props) {
   };
 
   const getCurrentGame = async () => {
-    const response = await axios.get(`https://www.ticytacytoeyapi.shop/api/current-game/?id=${props.currentUser.id}`);
+    const response = await axios.get(`https://www.ticytacytoeyapi.shop:8000/api/current-game/?id=${props.currentUser.id}`);
 
     if(response.data.gameData) {
       const channel = pusher.subscribe(`game_${response.data.gameData.game.id}`);
@@ -72,7 +72,7 @@ function Game(props) {
   };
 
   const sendMoveToDatabase = async (index) => {
-    const response = await axios.post('https://www.ticytacytoeyapi.shop/api/make-move/', {
+    const response = await axios.post('https://www.ticytacytoeyapi.shop:8000/api/make-move/', {
         index: index,
         id: gameData.game.id
         }, {
@@ -100,7 +100,7 @@ function Game(props) {
     setJoining(true);
     const gameCode = e.target.gameCode.value
     try{
-      const response = await axios.post('https://www.ticytacytoeyapi.shop/api/join-game/', {
+      const response = await axios.post('https://www.ticytacytoeyapi.shop:8000/api/join-game/', {
         code: gameCode
         }, {
             headers: {
@@ -117,7 +117,7 @@ function Game(props) {
 
   const leaveGame = async () => {
     setPlaying(false);
-    const response = await axios.post('https://www.ticytacytoeyapi.shop/api/end-game/', {
+    const response = await axios.post('https://www.ticytacytoeyapi.shop:8000/api/end-game/', {
       id: gameData.game.id
     });
     setGameData(null)
@@ -129,7 +129,7 @@ function Game(props) {
       setCreatingGame(false)
     }
     try {
-      const response = await axios.post('https://www.ticytacytoeyapi.shop/api/start-game/', null, {
+      const response = await axios.post('https://www.ticytacytoeyapi.shop:8000/api/start-game/', null, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Token ${token}`,

@@ -18,8 +18,8 @@ export default function Register() {
       };
     
       try {
-        const response = await axios.post('https://www.ticytacytoeyapi.shop/api/register/', formData);
-        const loginResponse = await axios.post('https://www.ticytacytoeyapi.shop/api/login/', {
+        const response = await axios.post('https://www.ticytacytoeyapi.shop:8000/api/register/', formData);
+        const loginResponse = await axios.post('https://www.ticytacytoeyapi.shop:8000/api/login/', {
           username: formData.username,
           password: formData.password
         })
